@@ -1,0 +1,31 @@
+.report-button-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 50px;
+  margin-top: 10px;
+   
+}
+
+.report-button {
+  padding: 15px 25px;
+font-size: 24px;
+text-align: center;
+cursor: pointer;
+outline: none;
+color: #fff;
+background-color: #6BBF59;
+border: 2px solid white;;
+border-radius: 15px;
+box-shadow: 0 9px #999;
+}
+
+.report-button:hover {
+  background-color: #02a325; 
+}
+
+@media (max-width: 768px) {
+  .report-button{
+      margin-top: -100px;
+  }
+} 
