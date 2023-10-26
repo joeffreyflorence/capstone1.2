@@ -5,6 +5,8 @@ import UpdateAccident from "./accident/UpdateAccident.jsx";
 import DeleteAccident from "./accident/DeleteAccident.jsx";
 import ViewAccidentModal from "./ViewAccidentModal.jsx";
 import "./ViewAccidentModal.css";
+import Select from 'react-select';
+
 
 const Accident = () => {
   const [name, setName] = useState("");
@@ -298,24 +300,28 @@ const Accident = () => {
   
 </select>
                 </td>
-                <td className="text-white text-md font-base text-center">
-                <select
-                    value={assignedUsers[index] || accident.assigned_officer|| ''}
-                    onChange={(e) => updateAssignedUser(index, e.target.value)}
-                    className="px-2 py-1 fs-5 rounded-lg text-md"
-                  >
-                    <option value="">Unassigned</option>
-                    <option value="PO1 - Juan Dela Cruz">PO1 - Juan Dela Cruz</option>
-                    <option value="SPO1 - Pedro Penduko">SPO1 - Pedro Penduko</option>
-                    <option value="Officer Amber Gongalves">Officer Amber Gongalves</option>
-                    <option value="Officer Mollie Jourdan">Officer Mollie Jourdan</option>
-                    <option value="Officer Ulises Esmay">Officer Ulises Esmay</option>
-                    <option value="Officer Braydon Linders">Officer Braydon Linders</option>
-                    <option value="Officer Gordon Noda">Officer Gordon Noda</option>
-                    <option value="Officer Emilio Daubenspeck">Officer Emilio Daubenspeck</option>
-                    <option value="Officer Ted Varrato">Officer Ted Varrato</option>
-                  </select>
-
+<td className="text-black text-md font-base text-center " >
+  
+  <Select
+  
+    options={[
+      { value: '', label: 'Unassigned' },
+      { value: 'PO1 - Juan Dela Cruz', label: 'PO1 - Juan Dela Cruz' },
+      { value: 'SPO1 - Pedro Penduko', label: 'SPO1 - Pedro Penduko' },
+      { value: 'Officer Amber Gongalves', label: 'Officer Amber Gongalves' },
+      { value: 'Officer Mollie Jourdan', label: 'Officer Mollie Jourdan' },
+      { value: 'Officer Ulises Esmay', label: 'Officer Ulises Esmay' },
+      { value: 'Officer Braydon Linders', label: 'Officer Braydon Linders' },
+      
+    ]}
+    value={{
+      value: assignedUsers[index] || accident.assigned_officer || '',
+      label: assignedUsers[index] || accident.assigned_officer || 'Unassigned',
+      
+    }}
+    onChange={(selectedOption) => updateAssignedUser(index, selectedOption.value)}
+    className="custom-select"
+  />
 </td>
                 <td className="flex items-center">
                   <div className="mr-1">
